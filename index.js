@@ -1,6 +1,17 @@
 const express = require('express')
+const bodyParser = require("body-parser")
+
 const app = express()
+// app.use(cors())
+app.use(bodyParser.json())
 
-app.post('/users', (request, ))
+const createUser = (request, response) => {
+    response.json({
+        user: "You added a user"
+    })
+}
 
-app.listen(process.env.PORT || 4000, ()=>console.log('ok working'))
+app.post('/users', createUser)
+
+
+app.listen(process.env.PORT || 4000, () => console.log('ok working'))
